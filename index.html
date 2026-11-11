@@ -1120,7 +1120,7 @@
 
     /* TÉLÉPHONE : lecture simple, de haut en bas (carte, jours, fiche du jour) */
     @media (max-width: 700px) {
-      :root { --phone-map-h: 50dvh; --phone-dock-h: 64px; }
+      :root { --phone-map-h: 70dvh; --phone-dock-h: 56px; }
       .card-hero-img-wrap { display: none; }
       body { height: 100dvh; }
       #map { height: var(--phone-map-h); }
@@ -1136,7 +1136,7 @@
         height: var(--phone-dock-h); border-radius: 0; border-left: 0; border-right: 0;
         padding: 0 8px; scroll-snap-type: x proximity;
       }
-      .dock-day-pill { height: 50px; min-width: 84px; scroll-snap-align: center; }
+      .dock-day-pill { height: 44px; min-width: 84px; scroll-snap-align: center; }
       .dock-day-pill:hover, .dock-day-pill.active { transform: none; }
       .pill-day-num { font-size: 13px; }
       .pill-stage-txt { font-size: 12px; }
@@ -1160,8 +1160,8 @@
       .narrative-highlight, .timeline-text, .feature-box-desc { font-size: 16px; line-height: 1.55; }
       .timeline-label, .feature-box-title { font-size: 13px; }
       .feature-boxes { grid-template-columns: 1fr; }
-      .card-footer { padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
-      .nav-btn { font-size: 15px; padding: 12px 16px; min-height: 48px; }
+      .card-footer { padding: 6px 12px calc(6px + env(safe-area-inset-bottom)); }
+      .nav-btn { font-size: 15px; padding: 8px 16px; min-height: 44px; }
       .card-progress-counter { font-size: 15px; }
     }
   </style>
