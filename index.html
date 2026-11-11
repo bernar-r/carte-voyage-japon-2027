@@ -1029,6 +1029,10 @@
       border-radius: 6px;
     }
 
+    /* Bulles proportionnelles au zoom (variable --mk posée par JS) ; texte masqué de loin sauf jour actif */
+    .custom-marker-wrapper > * { zoom: var(--mk, 1); }
+    #map.labels-far .custom-marker-wrapper:not(.active) .marker-text-badge { display: none; }
+
     /* SECONDARY POI MARKER PIN */
     .custom-poi-marker {
       width: 26px;
@@ -1446,6 +1450,16 @@
       customAttribution: '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Tracés indicatifs : © OpenStreetMap contributors</a>'
     }), 'bottom-right');
     map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
+
+    function updateMarkerScale() {
+      const z = map.getZoom();
+      const mapEl = map.getContainer();
+      const s = Math.min(1.15, Math.max(0.6, 0.6 + (z - 6.5) * 0.2));
+      mapEl.style.setProperty('--mk', s.toFixed(2));
+      mapEl.classList.toggle('labels-far', z < 7.8);
+    }
+    map.on('zoom', updateMarkerScale);
+    updateMarkerScale();
 
     map.on('load', () => {
       initTerrainAndLayers();
